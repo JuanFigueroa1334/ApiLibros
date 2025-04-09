@@ -1,0 +1,22 @@
+-- Creación de la tabla de autores
+CREATE TABLE autores (
+    id NUMBER PRIMARY KEY,
+    nombre VARCHAR2(100) NOT NULL
+);
+
+-- Creación de la tabla de libros
+CREATE TABLE libros (
+    id NUMBER PRIMARY KEY,
+    titulo VARCHAR2(200) NOT NULL,
+    id_autor NUMBER,
+    anio_publicacion NUMBER,
+    FOREIGN KEY (id_autor) REFERENCES autores(id)
+);
+
+-- Secuencias para autoincrementar los ID
+CREATE SEQUENCE seq_autores START WITH 1 INCREMENT BY 1;
+CREATE SEQUENCE seq_libros START WITH 1 INCREMENT BY 1;
+
+COMMIT;
+--select * from autores
+--select * from libros

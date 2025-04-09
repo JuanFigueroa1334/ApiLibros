@@ -45,7 +45,7 @@ public class AutorController {
     public ResponseEntity<String> deleteAutor(@PathVariable Long id){
         return autorRepository.findById(id).map(autor ->{
             autorRepository.delete(autor);
-            return ResponseEntity.ok("Libro eliminado exitosamente");
+            return ResponseEntity.ok("Autor eliminado exitosamente");
         }).orElse(ResponseEntity.notFound().build());
     }
     @PutMapping("/update/{id}")
